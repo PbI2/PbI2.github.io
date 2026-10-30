@@ -41,7 +41,7 @@ function card(article) {
 
 function home() {
   const featured = articles.slice(0, 3);
-  return `<div class="page"><section class="hero"><div><p class="eyebrow">Materials scientist · science writer</p><h1>Making sense of the <em>small</em> things.</h1><p class="hero-copy">I'm Elena—a researcher, writer, and professional question-asker. I study the materials that might help us build a cleaner, brighter future.</p><div class="hero-actions"><a class="button" href="#/articles">Explore the writing</a><a class="text-link" href="#/about">More about me&nbsp; ↗</a></div></div><div class="hero-visual"><div class="portrait-card"><span class="molecule">PbI₂</span></div><span class="visual-caption">Fig. 01 — a material in motion</span></div></section><section><div class="section-heading"><h2>Latest field notes</h2><a href="#/articles">View all writing&nbsp; →</a></div><div class="article-grid">${featured.map(card).join("")}</div></section><section class="about-band"><div><p class="eyebrow">A little context</p><h2>The world is made of tiny, fascinating decisions.</h2></div><div><p>My work lives at the intersection of chemistry, energy, and communication. In the lab, I look at how materials behave. Here, I try to explain why it matters—without sanding off the interesting edges.</p><a class="text-link" href="#/about">Read my story&nbsp; ↗</a></div></section><section class="newsletter"><div><h2>Notes, occasionally.</h2><p>A thoughtful email when I have something worth sharing.</p></div><form class="subscribe-form"><input type="email" placeholder="Your email address" aria-label="Your email address" required /><button type="submit">Subscribe&nbsp; →</button></form></section></div>`;
+  return `<div class="page"><section class="hero"><div><p class="eyebrow">Materials scientist · science writer</p><h1>Making sense of the <em>small</em> things.</h1><p class="hero-copy">I'm 施柏安—a researcher, writer, and professional question-asker. I study the materials that might help us build a cleaner, brighter future.</p><div class="hero-actions"><a class="button" href="#/articles">Explore the writing</a><a class="text-link" href="#/about">More about me&nbsp; ↗</a></div></div><div class="hero-visual"><div class="portrait-card"><span class="molecule">PbI₂</span></div><span class="visual-caption">Fig. 01 — a material in motion</span></div></section><section><div class="section-heading"><h2>Latest field notes</h2><a href="#/articles">View all writing&nbsp; →</a></div><div class="article-grid">${featured.map(card).join("")}</div></section><section class="about-band"><div><p class="eyebrow">A little context</p><h2>The world is made of tiny, fascinating decisions.</h2></div><div><p>My work lives at the intersection of chemistry, energy, and communication. In the lab, I look at how materials behave. Here, I try to explain why it matters—without sanding off the interesting edges.</p><a class="text-link" href="#/about">Read my story&nbsp; ↗</a></div></section><section class="newsletter"><div><h2>Notes, occasionally.</h2><p>A thoughtful email when I have something worth sharing.</p></div><form class="subscribe-form"><input type="email" placeholder="Your email address" aria-label="Your email address" required /><button type="submit">Subscribe&nbsp; →</button></form></section></div>`;
 }
 
 function archive() {
@@ -53,7 +53,11 @@ function articlePage(article) {
 }
 
 function about() {
-  return `<div class="page about-page"><p class="eyebrow">Hello, I'm Elena</p><h1>Curious about the things we can't see.</h1><div class="about-columns"><div><p class="card-meta">01 — The short version</p></div><div><p>I’m a materials scientist based in Cambridge, working on the next generation of thin-film solar cells. My days are a mix of spectroscopy, questionable amounts of coffee, and trying to make sense of data that refuses to be simple.</p><p>This site is where I write about the science I love: the beautiful, messy middle between a promising idea and something that works in the real world.</p><p>When I’m not in the lab, you’ll find me sketching, walking by the river, or explaining band gaps to anyone who will listen.</p></div></div></div>`;
+  return `<div class="page about-page"><p class="eyebrow">Hello, I'm 施柏安</p><h1>Curious about the things we can't see.</h1><div class="about-columns"><div><p class="card-meta">01 — The short version</p></div><div><p>I’m a materials scientist and science writer interested in the small structures and big questions behind energy technology.</p><p>This site is where I write about the science I love: the beautiful, messy middle between a promising idea and something that works in the real world.</p><p>When I’m not reading papers or writing, you’ll find me sketching, walking, or explaining band gaps to anyone who will listen.</p></div></div></div>`;
+}
+
+function labNotes() {
+  return `<div class="page about-page"><p class="eyebrow">The working notebook</p><h1>Small observations, still in progress.</h1><div class="about-columns"><div><p class="card-meta">02 — Current questions</p></div><div><p>Not everything belongs in a finished essay. This is a window into the questions currently pinned above my desk: how do we make a crystal more tolerant of heat, how should we measure stability, and what can a material teach us about its own limits?</p><p>These notes are intentionally unfinished. They are reminders that research is not a straight line—it is a collection of careful next steps.</p><a class="text-link" href="#/articles">Read the finished field notes&nbsp; →</a></div></div></div>`;
 }
 
 function render() {
@@ -64,6 +68,7 @@ function render() {
     app.innerHTML = article ? articlePage(article) : archive();
   } else if (path === "/articles") app.innerHTML = archive();
   else if (path === "/about") app.innerHTML = about();
+  else if (path === "/lab-notes") app.innerHTML = labNotes();
   else app.innerHTML = home();
   window.scrollTo(0, 0);
   nav.classList.remove("open");

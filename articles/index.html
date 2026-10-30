@@ -1,0 +1,25 @@
+---
+layout: default
+title: Writing
+---
+<div class="page">
+  <header class="archive-header">
+    <p class="eyebrow">The archive</p>
+    <h1>Thoughts from the lab<br>and beyond.</h1>
+    <p>Essays, explainers, and field notes about materials, energy, and the joy of looking closer.</p>
+  </header>
+  <div class="archive-grid">
+    {% assign posts = site.posts | where_exp: "post", "post.published != false" %}
+    {% for post in posts %}
+      <article class="article-card">
+        {% if post.hero_mark %}<a class="card-image {{ post.hero_color | default: 'green' }}" href="{{ post.url | relative_url }}"><span>{{ post.hero_mark }}</span></a>{% endif %}
+        <div class="card-meta">{{ post.category | default: "Field notes" }}</div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+        <a class="card-read" href="{{ post.url | relative_url }}">Read article&nbsp; →</a>
+      </article>
+    {% else %}
+      <p class="article-body">No published articles yet. Copy <code>_posts/2024-01-01-article-template.md</code>, update its front matter, and remove <code>published: false</code> to publish your first article.</p>
+    {% endfor %}
+  </div>
+</div>

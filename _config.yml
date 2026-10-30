@@ -1,0 +1,25 @@
+title: 施柏安
+description: Scientific writing, field notes, and articles about materials and energy.
+url: ""
+baseurl: ""
+lang: zh-Hant
+timezone: Asia/Taipei
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+permalink: /articles/:title/
+future: true
+paginate: 6
+paginate_path: /articles/page:num/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
